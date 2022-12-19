@@ -1,26 +1,8 @@
-const video = document.querySelector('video');
-        const button = document.querySelector('button')
+import MediaPlayer from './MediaPlayer.js'
 
-        function MediaPlayer(config) {
-            this.media = config.el
-        };
+const video = document.querySelector("video");
+const button = document.querySelector("button");
 
-        MediaPlayer.prototype.play = function() {
-            this.media.play();
-        };
+const player = new MediaPlayer({ el: video });
 
-        MediaPlayer.prototype.pause = function() {
-            this.media.pause();
-        };
-
-        MediaPlayer.prototype.togglePlay = function() {
-            if (this.media.paused) {
-                this.play();
-            } else {
-                this.pause();
-            }
-        };
-
-        const player = new MediaPlayer({ el: video });
-
-        button.onclick = () => player.togglePlay();
+button.onclick = () => player.togglePlay();
